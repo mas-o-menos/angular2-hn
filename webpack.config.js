@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
+const StatsWebpackPlugin = require('stats-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssUrl = require('postcss-url');
 const cssnano = require('cssnano');
@@ -321,6 +322,15 @@ module.exports = {
         "test.ts"
       ],
       "tsConfigPath": "src/tsconfig.json"
+    }),
+    new StatsWebpackPlugin('../stats/webpack.json', {
+      assets: true,
+      performance: true,
+      timings: true,
+      children: false,
+      source: false,
+      modules: false,
+      chunks: false,
     })
   ],
   "node": {
