@@ -25,6 +25,16 @@ jobs:
           name: Build application
           command: npm run build
 
+      - run:
+          name: Start local server
+          command: npm run static-serve
+          background: true
+
+      - run:
+          name: Run lighthouse tests
+          command: npm run check:perf
+
+
       # save cache
       - save_cache:
           paths:
