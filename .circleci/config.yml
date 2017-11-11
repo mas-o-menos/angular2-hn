@@ -34,6 +34,10 @@ jobs:
           name: Run lighthouse tests
           command: npm run check:perf
 
+      # Send stats to MoM
+      - run:
+          name: Send stats to MoM
+          command: npm run mom
 
       # save cache
       - save_cache:
